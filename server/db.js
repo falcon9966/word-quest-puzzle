@@ -4,21 +4,13 @@ const path = require('node:path');
 const bcrypt = require('bcryptjs');
 const { parseWordText } = require('./wordService');
 
-function getPoolConfig() {
-  let url = process.env.DATABASE_URL || '';
-  if (url.includes('supabase.co') && url.includes(':5432')) {
-    url = url.replace(':5432', ':6543') + (url.includes('?') ? '&' : '?') + 'pgbouncer=true';
-  }
-  return {
-    connectionString: url,
-    ssl: { rejectUnauthorized: false },
-    connectionTimeoutMillis: 5000,
-    idleTimeoutMillis: 30000,
-    max: 5,
-  };
-}
-
-const pool = new Pool(getPoolConfig());
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
+  connectionTimeoutMillis: 10000,
+  idleTimeoutMillis: 30000,
+  max: 5,
+});
 
 const db = {
   all: async (sql, params) => (await pool.query(sql, params)).rows,
