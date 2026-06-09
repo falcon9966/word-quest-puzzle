@@ -229,6 +229,7 @@ async function startLevel(levelId) {
   document.getElementById('welcomeScreen').classList.add('hidden');
   document.getElementById('gameContent').classList.remove('hidden');
 
+  Sound.levelStart();
   const data = await API.request(`/api/levels/${levelId}`);
   words = data.words;
   generateGrid();
@@ -354,6 +355,7 @@ function onPointerDown(e) {
   const c = Number(cell.dataset.c);
   selectedCells.push([r, c]);
   cell.classList.add('selected');
+  Sound.cellSelect();
 }
 
 function onPointerMove(e) {
@@ -401,6 +403,7 @@ function onTouchStart(e) {
   const c = Number(cell.dataset.c);
   selectedCells.push([r, c]);
   cell.classList.add('selected');
+  Sound.cellSelect();
 }
 
 function onTouchMove(e) {
@@ -467,11 +470,13 @@ function checkSelection() {
     }
     clearSelection();
     updateStats();
+    Sound.wordFound();
     toast(`🎉 找到了 ${matched.word}！`, 'success');
     if (foundWords.size === gridWords.length) {
       setTimeout(completeLevel, 500);
     }
   } else {
+    Sound.wrongGuess();
     for (const [r, c] of selectedCells) {
       const el = cellEl(r, c);
       if (el) el.classList.add('wrong');
@@ -493,6 +498,7 @@ async function completeLevel() {
     } catch (e) { /* ok */ }
   }
 
+  Sound.levelComplete();
   const overlay = document.createElement('div');
   overlay.className = 'celebration';
   overlay.innerHTML = `<div class="celebration-card">
