@@ -1,4 +1,3 @@
-console.log('=== APP.JS LOADED ===', process.env.DATABASE_URL ? 'DB_URL set' : 'DB_URL missing');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const express = require('express');
