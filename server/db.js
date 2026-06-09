@@ -7,7 +7,7 @@ const { parseWordText } = require('./wordService');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false },
-  connectionTimeoutMillis: 10000,
+  connectionTimeoutMillis: 5000,
   idleTimeoutMillis: 30000,
 });
 

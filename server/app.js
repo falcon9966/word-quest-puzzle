@@ -9,6 +9,7 @@ const app = express();
 const tokens = new Map();
 let ready = initDatabase();
 
+app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 app.use((req, res, next) => { ready.then(() => next()).catch(() => res.status(503).json({ message: '資料庫初始化中' })); });
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true }));
