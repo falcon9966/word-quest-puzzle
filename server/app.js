@@ -7,7 +7,9 @@ const { buildLevels, shuffle } = require('./wordService');
 
 const app = express();
 const tokens = new Map();
+let ready = initDatabase();
 
+app.use((req, res, next) => { ready.then(() => next()).catch(() => res.status(503).json({ message: '資料庫初始化中' })); });
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -258,8 +260,6 @@ app.delete('/api/admin/users/:id', auth(), adminOnly, async (req, res) => {
   await db.run("DELETE FROM users WHERE id = $1 AND role = 'player'", [req.params.id]);
   res.json({ message: '已刪除帳號' });
 });
-
-initDatabase();
 
 if (require.main === module) {
   const port = process.env.PORT || 3000;
