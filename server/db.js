@@ -6,7 +6,7 @@ const { parseWordText } = require('./wordService');
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.VERCEL ? { rejectUnauthorized: false } : undefined,
+  ssl: { rejectUnauthorized: false },
 });
 
 const db = {
