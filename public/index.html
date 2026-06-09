@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>單字探險島 | Word Quest</title>
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-flex">
+      <a class="nav-brand" href="/">🌟 Word Quest</a>
+      <div class="nav-links">
+        <a href="/game.html">🎮 探險</a>
+        <a href="/rankings.html">🏆 排行</a>
+        <span data-nav-user></span>
+      </div>
+    </div>
+  </nav>
+  <main style="min-height:calc(100vh - 80px);display:grid;align-items:center;padding:40px 20px;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;max-width:1100px;margin:0 auto;">
+        <section>
+          <h1 style="font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1.1;background:linear-gradient(135deg,#FF6B9D,#C9B1FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">🔍 單字探險島</h1>
+          <p style="font-size:1.15rem;color:#636E72;line-height:1.7;margin:20px 0;">在繽紛的字母迷宮中找出隱藏的英文單字！<br>6 冊分級題庫，每關在格子中找出 Unit 單字，<br>全部找到就過關解鎖下一關 🎮</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;">
+            <a href="/game.html" style="padding:14px 36px;border:none;border-radius:30px;font-size:1.15rem;font-weight:800;cursor:pointer;background:linear-gradient(135deg,#FF6B9D,#FF8C42);color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(255,107,157,0.4);transition:all 0.2s;display:inline-block;">🎮 開始探險</a>
+            <a href="/auth.html" style="padding:14px 36px;border:3px solid #FFD93D;border-radius:30px;font-size:1.15rem;font-weight:800;cursor:pointer;background:#fff;color:#2D3436;text-decoration:none;transition:all 0.2s;display:inline-block;">🔑 登入保存進度</a>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:30px;">
+            <span style="width:40px;height:40px;border-radius:10px;background:#FFD6E0;border:2px solid #FF6B9D;"></span>
+            <span style="width:40px;height:40px;border-radius:10px;background:#FFE0B2;border:2px solid #FF8C42;"></span>
+            <span style="width:40px;height:40px;border-radius:10px;background:#FFF3C4;border:2px solid #FFD93D;"></span>
+            <span style="width:40px;height:40px;border-radius:10px;background:#D4EDDA;border:2px solid #6BCB77;"></span>
+            <span style="width:40px;height:40px;border-radius:10px;background:#D4F1F9;border:2px solid #45B7D1;"></span>
+            <span style="width:40px;height:40px;border-radius:10px;background:#EDE4FF;border:2px solid #C9B1FF;"></span>
+          </div>
+        </section>
+        <section style="text-align:center;">
+          <div style="font-size:8rem;line-height:1;animation:bounce 2s infinite;text-shadow:0 8px 30px rgba(0,0,0,0.1);">🔍</div>
+          <p style="color:#636E72;margin-top:12px;font-weight:600;">在字母海中找出所有單字！</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script src="/js/api.js"></script>
+</body>
+</html>

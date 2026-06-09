@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>單字探險島 | Word Quest</title>
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-flex">
+      <a class="nav-brand" href="/">🌟 Word Quest</a>
+      <div class="nav-links">
+        <a href="/profile.html">👤 個人</a>
+        <a href="/rankings.html">🏆 排行</a>
+        <span data-nav-user></span>
+      </div>
+    </div>
+  </nav>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <main class="game-layout">
+    <aside class="sidebar">
+      <div class="panel sidebar-panel">
+        <h2 class="sidebar-title">📚 選擇關卡</h2>
+        <div class="level-grid" id="levelGrid"></div>
+      </div>
+    </aside>
+
+    <section class="game-area">
+      <div id="welcomeScreen" class="welcome-screen">
+        <div class="welcome-emoji">🔍</div>
+        <h1>單字探險島</h1>
+        <p>在字母迷宮中找到隱藏的英文單字！<br>左邊選一關開始挑戰吧 🎮</p>
+        <div class="welcome-tips">
+          <div class="tip">👆 點擊字母開始選取</div>
+          <div class="tip">👉 拖曳到相鄰字母</div>
+          <div class="tip">🌟 找到全部單字就過關！</div>
+        </div>
+      </div>
+
+      <div id="gameContent" class="game-content hidden">
+        <div class="game-header">
+          <div class="level-badge" id="levelTitle"></div>
+          <div class="game-stats">
+            <span class="stat-item" id="progressText">⭐ 0 / 0</span>
+            <span class="stat-item" id="scoreText">🏅 0 分</span>
+          </div>
+        </div>
+
+        <div class="grid-wrapper" id="gridWrapper">
+          <div class="word-grid" id="wordGrid"></div>
+        </div>
+
+        <div class="hint-section">
+          <h3 class="hint-title">📝 找出這些單字</h3>
+          <div class="word-hints" id="wordHints"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/game.js"></script>
+</body>
+</html>

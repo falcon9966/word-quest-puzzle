@@ -1,0 +1,17 @@
+{
+  "name": "word-quest-puzzle",
+  "version": "1.0.0",
+  "description": "英文單字猜謎闖關網站",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "node server/app.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.9.1",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {}
+}
